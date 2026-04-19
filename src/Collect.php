@@ -118,7 +118,9 @@ class Collect
 
     public function splice($idx, $length = 1): Collect
     {
-        array_splice($idx, $length);
+        if (isset($this->array) && is_array($this->array)) {
+            array_splice($this->array, $idx, $length);
+        }
         return $this;
     }
 }
